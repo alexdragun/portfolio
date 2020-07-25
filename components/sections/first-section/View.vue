@@ -1,10 +1,10 @@
 <template>
   <section class="container-wrapper">
     <div class="container">
-      <img class="avatar" src="/images/avatar.svg" alt="avatar">
+      <img class="avatar" src="~static/images/avatar.svg" alt="avatar">
       <h2>Front-end developer</h2>
       <h4>Alex Dragun</h4>
-      <img class="code-image" src="/images/code-thinking.svg" alt="code">
+      <img class="code-image" src="~static/images/code-thinking.svg" alt="code">
     </div>
   </section>
 </template>
