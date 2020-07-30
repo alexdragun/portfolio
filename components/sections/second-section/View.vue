@@ -17,6 +17,9 @@
 .container-wrapper {
   padding: 120px 0;
   background-color: $primary_color;
+  @media only screen and (max-width: 768px) {
+    padding: 80px 0;
+  }
   .container {
     text-align: center;
     color: $primary_light;

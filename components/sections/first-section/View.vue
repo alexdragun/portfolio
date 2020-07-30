@@ -40,6 +40,7 @@
     h2 {
       position: relative;
       margin: 0 auto 5px;
+      padding: 0 5px;
       width: fit-content;
       background-color: $primary_light;
       @media only screen and (max-width: 400px) {
@@ -56,7 +57,7 @@
       }
     }
     .code-image {
-      margin: 50px auto -15px;
+      margin: 50px auto -13px;
       display: block;
       width: 100%;
       max-width: 760px;
