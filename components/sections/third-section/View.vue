@@ -1,7 +1,9 @@
 <template>
   <section class="container-wrapper">
     <div class="custom-container">
-      <h2>Things that I am familiar with</h2>
+      <div style="padding: 0 20px;">
+        <h2>Things that I am familiar with</h2>
+      </div>
       <div class="timeline">
         <div class="timeline-inner"
              v-for="(category, index) in categories"
@@ -28,52 +30,6 @@
             </div>
           </div>
         </div>
-
-        <!--<div class="timeline-inner">
-          <div class="timeline-title active">
-            <p>Frontend</p>
-          </div>
-          <div class="timeline-inner__content">
-            <div class="box">
-              <div class="box-header">
-                <p>Nuxt</p>
-              </div>
-              <div class="box-content">
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-inner">
-          <div class="timeline-title">
-            <p>Backend</p>
-          </div>
-          <div class="timeline-inner__content">
-            <div class="box">
-              <div class="box-header">
-                <p>Rest api</p>
-              </div>
-              <div class="box-content">
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-inner">
-          <div class="timeline-title">
-            <p>Tools</p>
-          </div>
-          <div class="timeline-inner__content">
-            <div class="box">
-              <div class="box-header">
-                <p>Git</p>
-              </div>
-              <div class="box-content">
-
-              </div>
-            </div>
-          </div>
-        </div>-->
       </div>
     </div>
   </section>
@@ -215,8 +171,11 @@
       padding: 0 5px;
       width: fit-content;
       background-color: $primary_light;
-      @media only screen and (max-width: 400px) {
-        font-size: 28px;
+      @media only screen and (max-width: 768px) {
+        padding: 0;
+        @media only screen and (max-width: 400px) {
+          font-size: 28px;
+        }
       }
       &:before {
         content: '';
@@ -226,6 +185,9 @@
         background-color: $primary_color;
         z-index: -1;
         @include fullscreen(absolute, -7px, initial, initial, -7px);
+        @media only screen and (max-width: 768px) {
+          display: none;
+        }
       }
     }
     .timeline {
@@ -233,11 +195,18 @@
       margin-top: 40px;
       &-inner {
         display: flex;
+        @media only screen and (max-width: 768px) {
+          flex-direction: column;
+        }
         &__content {
           width: 100%;
           display: flex;
           flex-wrap: wrap;
           margin-left: 30px;
+          @media only screen and (max-width: 768px) {
+            margin-left: 0;
+            margin-bottom: 30px;
+          }
           .box {
             margin-top: 20px;
             width: calc(25% - 21px);
@@ -250,25 +219,55 @@
             &:nth-child(4n + 4) {
               margin-right: 0;
             }
+            @media only screen and (max-width: 1024px) {
+              width: calc(33% - 18px);
+              &:nth-child(4n + 4) {
+                margin-right: 20px;
+              }
+              &:nth-child(3n + 3) {
+                margin-right: 0;
+              }
+              &:nth-child(4) {
+                margin-top: 20px;
+              }
+              @media only screen and (max-width: 550px) {
+                width: calc(50% - 16px);
+                &:nth-child(3n + 3) {
+                  margin-right: 20px;
+                }
+                &:nth-child(3) {
+                  margin-top: 20px;
+                }
+                &:nth-child(2n + 2) {
+                  margin-right: 0;
+                }
+              }
+            }
             &-header {
               text-align: center;
               padding: 5px;
               background-color: $primary_color;
               p {
+                text-transform: uppercase;
                 color: $primary_light;
+                font-size: 18px !important;
+                line-height: 22px !important;
               }
             }
             &-content {
               display: flex;
               align-items: center;
               justify-content: center;
-              height: calc(100% - 32px);
+              height: calc(100% - 52px);
+              padding: 10px;
               .image {
                 display: block;
                 margin: 0 auto;
-                padding: 10px;
                 width: 100%;
                 max-width: 135px;
+                @media only screen and (max-width: 350px) {
+                  max-width: 75px;
+                }
               }
             }
           }
@@ -276,6 +275,9 @@
         &:last-child {
           .timeline-title {
             padding-bottom: 0;
+            @media only screen and (max-width: 768px) {
+              padding-bottom: 30px;
+            }
             &:before {
               content: '';
               display: block;
@@ -285,6 +287,9 @@
               z-index: -1;
               @include fullscreen(absolute, initial, initial, 0, 44px);
               @include border-radius(20px);
+              @media only screen and (max-width: 768px) {
+                display: none;
+              }
             }
           }
         }
@@ -298,8 +303,12 @@
           height: calc(100% - 4px);
           z-index: -1;
           @include fullscreen(absolute, 0, initial, 0, 52px);
+          @media only screen and (max-width: 768px) {
+            display: none;
+          }
         }
         p {
+          cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -308,6 +317,16 @@
           width: 100px;
           height: 100px;
           @include border-radius(100px);
+          @include transition(0.3s);
+          &:hover {
+            color: $primary_light;
+            background-color: $primary_color;
+          }
+          @media only screen and (max-width: 768px) {
+            width: 100%;
+            height: 50px;
+            @include border-radius(10px);
+          }
         }
         &.active {
           p {
