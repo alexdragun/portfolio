@@ -22,7 +22,7 @@
               </div>
               <div class="box-content">
                 <img class="image"
-                     :src="item.imageSrc"
+                     :src="`images/things/${item.imageSrc}`"
                      :alt="item.imageAlt">
               </div>
             </div>
@@ -92,49 +92,49 @@
               {
                 id: 1,
                 title: 'Nuxt',
-                imageSrc: '/images/frontend/nuxt.svg',
+                imageSrc: 'nuxt.svg',
                 imageAlt: 'Nuxt'
               },
               {
                 id: 2,
                 title: 'Vue',
-                imageSrc: '/images/frontend/vue.svg',
+                imageSrc: 'vue.svg',
                 imageAlt: 'Vue'
               },
               {
                 id: 3,
                 title: 'Angular',
-                imageSrc: '/images/frontend/angular.svg',
+                imageSrc: 'angular.svg',
                 imageAlt: 'Angular'
               },
               {
                 id: 4,
                 title: 'Bootstrap',
-                imageSrc: '/images/frontend/bootstrap.svg',
+                imageSrc: 'bootstrap.svg',
                 imageAlt: 'Bootstrap'
               },
               {
                 id: 5,
                 title: 'Html',
-                imageSrc: '/images/frontend/html.svg',
+                imageSrc: 'html.svg',
                 imageAlt: 'Html'
               },
               {
                 id: 6,
                 title: 'Css',
-                imageSrc: '/images/frontend/css.png',
+                imageSrc: 'css.png',
                 imageAlt: 'Css'
               },
               {
                 id: 7,
                 title: 'Js',
-                imageSrc: '/images/frontend/js.png',
+                imageSrc: 'js.png',
                 imageAlt: 'Js'
               },
               {
                 id: 8,
                 title: 'Sass',
-                imageSrc: '/images/frontend/sass.svg',
+                imageSrc: 'sass.svg',
                 imageAlt: 'Sass'
               }
             ]
@@ -146,7 +146,7 @@
               {
                 id: 1,
                 title: 'Rest api',
-                imageSrc: '/images/backend/rest-api.svg',
+                imageSrc: 'rest-api.svg',
                 imageAlt: 'Rest-api'
               }
             ]
@@ -158,25 +158,25 @@
               {
                 id: 1,
                 title: 'Git',
-                imageSrc: '/images/tools/git.svg',
+                imageSrc: 'git.svg',
                 imageAlt: 'Git'
               },
               {
                 id: 2,
                 title: 'Adobe xd',
-                imageSrc: '/images/tools/adobexd.png',
+                imageSrc: 'adobexd.png',
                 imageAlt: 'Adobe-xd'
               },
               {
                 id: 3,
                 title: 'Intellij',
-                imageSrc: '/images/tools/intellij.svg',
+                imageSrc: 'intellij.svg',
                 imageAlt: 'Intellij'
               },
               {
                 id: 4,
                 title: 'Webstorm',
-                imageSrc: '/images/tools/webstorm.png',
+                imageSrc: 'webstorm.png',
                 imageAlt: 'Webstorm'
               }
             ]
