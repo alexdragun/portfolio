@@ -58,8 +58,8 @@
         }, 1500)
       },
       openMailPopup () {
-        const { email, subject, body } = this
-        window.location.href = `mailto:${email}?subject=${subject}&body=${body}`
+        const { email, subject, message } = this
+        window.location.href = `mailto:${email}?subject=${subject}&body=${message}`
         this.subject = ''
         this.message = ''
         this.status = 'submit'
