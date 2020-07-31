@@ -1,9 +1,35 @@
 <template>
   <section class="container-wrapper">
-    <div class="container">
+    <div class="custom-container">
       <h2>Things that I am familiar with</h2>
       <div class="timeline">
-        <div class="timeline-inner">
+        <div class="timeline-inner"
+             v-for="(category, index) in categories"
+             :key="category.id">
+          <div class="timeline-title"
+               :class="{ 'active': showItems === index }"
+               @click="expand(index)">
+            <p>{{ category.categoryTitle }}</p>
+          </div>
+          <div class="timeline-inner__content"
+               v-if="index === showItems">
+            <div class="box"
+                 v-for="item in category.categoryItems"
+                 :key="item.id">
+              <div class="box-header"
+                   v-if="item.title">
+                <p>{{ item.title }}</p>
+              </div>
+              <div class="box-content">
+                <img class="image"
+                     :src="item.imageSrc"
+                     :alt="item.imageAlt">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="timeline-inner">
           <div class="timeline-title active">
             <p>Frontend</p>
           </div>
@@ -13,6 +39,7 @@
                 <p>Nuxt</p>
               </div>
               <div class="box-content">
+
               </div>
             </div>
           </div>
@@ -22,7 +49,14 @@
             <p>Backend</p>
           </div>
           <div class="timeline-inner__content">
-            test
+            <div class="box">
+              <div class="box-header">
+                <p>Rest api</p>
+              </div>
+              <div class="box-content">
+
+              </div>
+            </div>
           </div>
         </div>
         <div class="timeline-inner">
@@ -30,13 +64,140 @@
             <p>Tools</p>
           </div>
           <div class="timeline-inner__content">
-            test
+            <div class="box">
+              <div class="box-header">
+                <p>Git</p>
+              </div>
+              <div class="box-content">
+
+              </div>
+            </div>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </section>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        showItems: 0,
+        categories: [
+          {
+            id: 1,
+            categoryTitle: 'Frontend',
+            categoryItems: [
+              {
+                id: 1,
+                title: 'Nuxt',
+                imageSrc: '/images/frontend/nuxt.svg',
+                imageAlt: 'Nuxt'
+              },
+              {
+                id: 2,
+                title: 'Vue',
+                imageSrc: '/images/frontend/vue.svg',
+                imageAlt: 'Vue'
+              },
+              {
+                id: 3,
+                title: 'Angular',
+                imageSrc: '/images/frontend/angular.svg',
+                imageAlt: 'Angular'
+              },
+              {
+                id: 4,
+                title: 'Bootstrap',
+                imageSrc: '/images/frontend/bootstrap.svg',
+                imageAlt: 'Bootstrap'
+              },
+              {
+                id: 5,
+                title: 'Html',
+                imageSrc: '/images/frontend/html.svg',
+                imageAlt: 'Html'
+              },
+              {
+                id: 6,
+                title: 'Css',
+                imageSrc: '/images/frontend/css.png',
+                imageAlt: 'Css'
+              },
+              {
+                id: 7,
+                title: 'Js',
+                imageSrc: '/images/frontend/js.png',
+                imageAlt: 'Js'
+              },
+              {
+                id: 8,
+                title: 'Sass',
+                imageSrc: '/images/frontend/sass.svg',
+                imageAlt: 'Sass'
+              }
+            ]
+          },
+          {
+            id: 2,
+            categoryTitle: 'Backend',
+            categoryItems: [
+              {
+                id: 1,
+                title: 'Rest api',
+                imageSrc: '/images/backend/rest-api.svg',
+                imageAlt: 'Rest-api'
+              }
+            ]
+          },
+          {
+            id: 3,
+            categoryTitle: 'Tools',
+            categoryItems: [
+              {
+                id: 1,
+                title: 'Git',
+                imageSrc: '/images/tools/git.svg',
+                imageAlt: 'Git'
+              },
+              {
+                id: 2,
+                title: 'Adobe xd',
+                imageSrc: '/images/tools/adobexd.png',
+                imageAlt: 'Adobe-xd'
+              },
+              {
+                id: 3,
+                title: 'Intellij',
+                imageSrc: '/images/tools/intellij.svg',
+                imageAlt: 'Intellij'
+              },
+              {
+                id: 4,
+                title: 'Webstorm',
+                imageSrc: '/images/tools/webstorm.png',
+                imageAlt: 'Webstorm'
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    methods: {
+      expand(i) {
+        if (this.showItems === i) {
+          this.showItems = null
+          console.log(this.showItems);
+        } else {
+          this.showItems = i
+          console.log(this.showItems);
+        }
+      }
+    }
+  }
+</script>
 
 <style lang="scss" scoped>
 .container-wrapper {
@@ -44,7 +205,10 @@
   @media only screen and (max-width: 768px) {
     padding: 80px 0;
   }
-  .container {
+  .custom-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
     h2 {
       position: relative;
       margin: 0 auto;
@@ -65,23 +229,63 @@
       }
     }
     .timeline {
+      padding: 0 20px;
       margin-top: 40px;
       &-inner {
         display: flex;
         &__content {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
           margin-left: 30px;
           .box {
+            margin-top: 20px;
+            width: calc(25% - 21px);
+            margin-right: 20px;
+            border: 3px solid $primary_color;
+            @include border-radius(10px);
+            &:nth-child(-n + 4) {
+              margin-top: 0;
+            }
+            &:nth-child(4n + 4) {
+              margin-right: 0;
+            }
             &-header {
-
+              text-align: center;
+              padding: 5px;
+              background-color: $primary_color;
+              p {
+                color: $primary_light;
+              }
             }
             &-content {
-
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: calc(100% - 32px);
+              .image {
+                display: block;
+                margin: 0 auto;
+                padding: 10px;
+                width: 100%;
+                max-width: 135px;
+              }
             }
           }
         }
         &:last-child {
           .timeline-title {
             padding-bottom: 0;
+            &:before {
+              content: '';
+              display: block;
+              width: 20px;
+              height: 20px;
+              background-color: $primary_color;
+              z-index: -1;
+              @include fullscreen(absolute, initial, initial, 0, 44px);
+              @include border-radius(20px);
+            }
           }
         }
       }
@@ -113,20 +317,6 @@
         }
       }
     }
-    /*.box-container {
-      margin-top: 40px;
-      display: flex;
-      flex-wrap: wrap;
-      &__inner {
-        margin-top: 20px;
-        background-color: red;
-        width: 33%;
-        height: 300px;
-        &:nth-child(-n + 3) {
-          margin-top: 0;
-        }
-      }
-    }*/
   }
 }
 </style>
