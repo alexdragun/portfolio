@@ -1,5 +1,5 @@
 <template>
-  <section class="container-wrapper">
+  <section id="first-section" class="container-wrapper">
     <div class="container">
       <img class="avatar" src="~static/images/avatar.svg" alt="avatar">
       <h2>Front-end developer</h2>

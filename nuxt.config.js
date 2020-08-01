@@ -43,7 +43,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: "@/plugins/aos", ssr: false }
+    { src: "@/plugins/aos", ssr: false },
+    { src: "@/plugins/VueScrollTo", ssr: false }
   ],
   components: true,
   /*
@@ -59,7 +60,8 @@ export default {
     // Doc: https://www.npmjs.com/package/@nuxtjs/style-resources
     '@nuxtjs/style-resources',
     // Doc: https://www.npmjs.com/package/nuxt-webfontloader
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
+    'vue-scrollto/nuxt'
   ],
   styleResources: {
     scss: [

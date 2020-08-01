@@ -6,16 +6,29 @@
     <div class="nav-right">
       <ul>
         <li>
-          <a>Home</a>
+          <a v-scroll-to="{
+              el: '#first-section',
+              offset: -120
+             }">Home</a>
         </li>
         <li>
-          <a>About me</a>
+          <a v-scroll-to="{
+              el: '#second-section',
+              offset: -70
+             }">About me</a>
         </li>
         <li>
-          <a>Recent work</a>
+          <a v-scroll-to="{
+              el: '#fourth-section',
+              offset: -70
+             }">Recent work</a>
         </li>
         <li>
-          <a class="button top-left">Contact me</a>
+          <a v-scroll-to="{
+              el: '#fifth-section',
+              offset: -70
+             }"
+             class="button top-left">Contact me</a>
         </li>
       </ul>
     </div>
@@ -26,27 +39,40 @@
     </div>
     <transition name="slide-fade">
       <template v-if="openMenu">
-        <div class="responsive-menu">
+        <div class="responsive-menu"
+             @click="openMenu = false">
           <div class="responsive-menu__inner">
             <ul>
               <li>
-                <a>Home</a>
+                <a v-scroll-to="{
+                    el: '#first-section',
+                    offset: -120
+                   }">Home</a>
               </li>
               <li>
-                <a>About me</a>
+                <a v-scroll-to="{
+                    el: '#second-section',
+                    offset: -70
+                   }">About me</a>
               </li>
               <li>
-                <a>Recent work</a>
+                <a v-scroll-to="{
+                    el: '#fourth-section',
+                    offset: -70
+                   }">Recent work</a>
               </li>
               <li>
-                <a class="button top-left">Contact me</a>
+                <a v-scroll-to="{
+                    el: '#fifth-section',
+                    offset: -70
+                   }"
+                   class="button top-left">Contact me</a>
               </li>
             </ul>
           </div>
         </div>
       </template>
     </transition>
-
   </nav>
 </template>
 

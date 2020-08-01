@@ -1,5 +1,5 @@
 <template>
-  <section class="container-wrapper">
+  <section id="second-section" class="container-wrapper">
     <div class="container">
       <h3>Hello, I'm Alex. Nice to meet you.</h3>
       <p>
