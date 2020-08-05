@@ -32,9 +32,9 @@
                 <a class="main-link"
                    href="https://alexdragun.github.io/todo/"
                    target="_blank">Visit website</a>
-                <!--<a class="secondary-link"
-                   href="https://github.com/alexdragun/portfolio"
-                   target="_blank">Git repository</a>-->
+                <a class="secondary-link"
+                   href="https://github.com/alexdragun/todo"
+                   target="_blank">Git repository</a>
               </div>
             </div>
           </div>
