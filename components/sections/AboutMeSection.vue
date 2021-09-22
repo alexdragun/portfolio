@@ -4,15 +4,11 @@
       <div class="container__inner--about">
         <img src="~static/images/avatar.svg" alt="Avatar" />
         <div>
-          <h3 class="title">About Me</h3>
-          <p class="description">
-            My journey as a front-end developer started almost 4 years ago. I
-            have 3 years of work experience. I'm very passionate and dedicated
-            to my work. Always working on improving my skills.
-          </p>
+          <h3 class="title">{{ $t('about.title') }}</h3>
+          <p class="description">{{ $t('about.description') }}</p>
           <Button v-scroll-to="{
               el: '#contact-section',
-             }">CONTACT ME</Button>
+             }">{{ $t('about.contact') }}</Button>
         </div>
       </div>
       <SkillsSection />

@@ -12,10 +12,10 @@
     <div class="container__inner">
       <div class="container__inner--content">
         <div>
-          <h6>HELLO</h6>
-          <h1>I'm <span>Alex</span> Dragun</h1>
-          <p>Front-end developer located in Croatia</p>
-          <Button>DOWNLOAD CV</Button>
+          <h6>{{ $t("hero.hello") }}</h6>
+          <h1>{{ $t("hero.me") }} <span>Alex</span> Dragun</h1>
+          <p>{{ $t("hero.description") }}</p>
+          <Button @click="downloadCv">{{ $t("hero.cv") }}</Button>
           <div class="social">
             <a
               href="https://www.linkedin.com/in/alex-dragun-7304b2192/"
@@ -54,6 +54,16 @@ export default {
   components: {
     Button: () => import("@/components/partials/Button.vue"),
   },
+  methods: {
+    downloadCv() {
+      var anchor = document.createElement("a");
+      anchor.setAttribute("href", "/favicon.svg");
+      anchor.setAttribute("download", "");
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.parentNode.removeChild(anchor);
+    },
+  },
 };
 </script>
 
@@ -74,6 +84,8 @@ export default {
     bottom: 0;
   }
   &__inner {
+    position: relative;
+    z-index: 1;
     height: 100%;
     @media only screen and (max-width: 1024px) {
       box-sizing: border-box;

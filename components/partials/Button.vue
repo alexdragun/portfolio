@@ -1,5 +1,5 @@
 <template>
-    <button class="button">
+    <button class="button" @click="$emit('click')">
         <span>
             <slot />
         </span>
@@ -36,7 +36,7 @@
       background-color: $secondary_color;
       position: absolute;
       border-radius: 100px;
-      top: -30px;
+      top: -60px;
       animation: wave 5s infinite linear;
       transition: top 0.3s;
       @keyframes wave{

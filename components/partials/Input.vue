@@ -24,7 +24,6 @@ export default {
     },
     type: {
       type: String,
-      required: true,
       default: "text",
     },
   },
@@ -39,11 +38,12 @@ export default {
 
 <style lang="scss" scoped>
 .input {
-    padding-top: 20px;
+  padding-top: 20px;
   position: relative;
   display: flex;
   align-items: center;
-   &--filled, &:focus-within {
+  &--filled,
+  &:focus-within {
     label {
       color: $secondary_color;
       transform: translateY(-30px) translateX(0) !important;

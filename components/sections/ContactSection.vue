@@ -4,12 +4,12 @@
       <img class="contact" src="~static/images/contact.svg" alt="" />
       <div class="container__inner--contact">
         <form @submit.prevent="sendMail">
-          <Input label="Subject" v-model="subject" />
-          <Textarea label="Message" v-model="message" />
+          <Input :label="$t('contact.subject')" v-model="subject" />
+          <Textarea :label="$t('contact.message')" v-model="message" />
           <Button>
-            <template v-if="status === 'sending'"> SENDING... </template>
-            <template v-else-if="status === 'sent'"> SENT </template>
-            <template v-else> SUBMIT </template>
+            <template v-if="status === 'sending'"> {{ $t('contact.sending') }}... </template>
+            <template v-else-if="status === 'sent'"> {{ $t('contact.sent') }} </template>
+            <template v-else> {{ $t('contact.submit') }} </template>
           </Button>
         </form>
       </div>
@@ -19,6 +19,11 @@
 
 <script>
 export default {
+  components: {
+    Input:() => import('@/components/partials/Input.vue'),
+    Textarea:() => import('@/components/partials/Textarea.vue'),
+    Button:() => import('@/components/partials/Button.vue'),
+  },
   data() {
     return {
       email: "thealex991@gmail.com",

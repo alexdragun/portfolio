@@ -1,7 +1,7 @@
 <template>
   <div class="skills">
     <div class="title-container">
-      <h3 class="title">My Skills</h3>
+      <h3 class="title" :class="{ 'title--hr': $route.path === '/hr' }">{{ $t('about.skills') }}</h3>
     </div>
     <div class="skills__inner">
       <Progress :percentage="100">
@@ -103,7 +103,8 @@ export default {
     @media only screen and (min-width: 768px) {
       overflow: hidden;
       width: 40px;
-      height: 175px;
+      /* height: 175px; */
+          height: 325px;
     }
     .title {
       width: fit-content;
@@ -111,6 +112,12 @@ export default {
       align-items: center;
       color: $secondary_color;
       margin-bottom: 32px;
+      &--hr {
+        @media only screen and (min-width: 768px) {
+          margin-left: -104px !important;
+          height: 255px !important;
+        }
+      }
       &::before {
         content: "";
         margin-right: 15px;

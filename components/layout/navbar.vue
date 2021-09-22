@@ -43,35 +43,35 @@
           <a
             @click="scrollTo('hero-section')"
             :class="{ active: activeLink === 'hero-section' }"
-            >Home</a
+            >{{ $t("navigation.home") }}</a
           >
         </li>
         <li>
           <a
             @click="scrollTo('about-section')"
             :class="{ active: activeLink === 'about-section' }"
-            >About</a
+            >{{ $t("navigation.about") }}</a
           >
         </li>
         <li>
           <a
             @click="scrollTo('work-section')"
             :class="{ active: activeLink === 'work-section' }"
-            >Work</a
+            >{{ $t("navigation.work") }}</a
           >
         </li>
         <li>
           <a
             @click="scrollTo('contact-section')"
             :class="{ active: activeLink === 'contact-section' }"
-            >Contact</a
+            >{{ $t("navigation.contact") }}</a
           >
         </li>
       </ul>
     </div>
     <div class="nav__right">
-      <a>HR</a>
-      <a>EN</a>
+      <nuxt-link :to="switchLocalePath('hr')">HR</nuxt-link>
+      <nuxt-link :to="switchLocalePath('en')">EN</nuxt-link>
     </div>
     <div
       class="hamburger"
@@ -89,31 +89,35 @@
             <a
               @click="scrollTo('hero-section')"
               :class="{ active: activeLink === 'hero-section' }"
-              >Home</a
+              >{{ $t("navigation.home") }}</a
             >
           </li>
           <li>
             <a
               @click="scrollTo('about-section')"
               :class="{ active: activeLink === 'about-section' }"
-              >About</a
+              >{{ $t("navigation.about") }}</a
             >
           </li>
           <li>
             <a
               @click="scrollTo('work-section')"
               :class="{ active: activeLink === 'work-section' }"
-              >Work</a
+              >{{ $t("navigation.work") }}</a
             >
           </li>
           <li>
             <a
               @click="scrollTo('contact-section')"
               :class="{ active: activeLink === 'contact-section' }"
-              >Contact</a
+              >{{ $t("navigation.contact") }}</a
             >
           </li>
         </ul>
+        <div class="lang">
+          <nuxt-link :to="switchLocalePath('hr')"><span @click="isOpened = false">HR</span></nuxt-link>
+          <nuxt-link :to="switchLocalePath('en')"><span @click="isOpened = false">EN</span></nuxt-link>
+        </div>
       </div>
     </transition>
   </nav>
@@ -136,7 +140,7 @@ export default {
   },
   methods: {
     toggleMenu() {
-      this.isOpened = !this.isOpened
+      this.isOpened = !this.isOpened;
     },
     scrollTo(elementId) {
       let offset = 0;
@@ -161,12 +165,13 @@ export default {
 
 <style lang="scss" scoped>
 .slide-fade-enter-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
-  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.slide-fade-enter, .slide-fade-leave-to {
+.slide-fade-enter,
+.slide-fade-leave-to {
   transform: translateX(250px);
 }
 .nav {
@@ -234,6 +239,7 @@ export default {
     }
     a {
       cursor: pointer;
+      text-decoration: none;
       display: block;
       text-transform: uppercase;
       font-size: 14px;
@@ -244,6 +250,9 @@ export default {
       }
       &:not(:last-child) {
         margin-right: 10px;
+      }
+      &.nuxt-link-exact-active {
+        color: $secondary_color;
       }
     }
   }
@@ -321,6 +330,7 @@ export default {
         a {
           cursor: pointer;
           font-size: 16px;
+          color: $gray;
           transition: 0.3s;
           &:hover {
             color: $secondary_color;
@@ -330,6 +340,28 @@ export default {
           }
         }
       }
+    }
+    .lang {
+      margin-top: 20px;
+      display: flex;
+      a {
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      text-transform: uppercase;
+      font-size: 16px;
+      color: $gray;
+      transition: 0.3s ease;
+      &:hover {
+        color: $secondary_color;
+      }
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+      &.nuxt-link-exact-active {
+        color: $secondary_color;
+      }
+    }
     }
   }
 }

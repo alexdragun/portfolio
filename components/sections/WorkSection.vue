@@ -1,23 +1,20 @@
 <template>
   <div id="work-section" class="container">
     <div class="container__inner">
-      <h3>Recent Work</h3>
+      <h3>{{ $t('work.title') }}</h3>
       <div class="work">
         <div class="work__content">
           <div class="work__content--header">
             <img src="~static/images/projects/portfolio.png" alt="Portfolio" />
             <div class="created">
-              <p>Sep, 2021</p>
+              <p>{{ $t('work.portfolio.date') }}</p>
             </div>
           </div>
           <div class="work__content--footer">
-            <h4>Portfolio</h4>
-            <p>
-              My journey as a front-end developer started almost 4 years ago. I
-              have 3 years of w...
-            </p>
+            <h4>{{ $t('work.portfolio.title') }}</h4>
+            <p>{{ $t('work.portfolio.description') }}</p>
             <a href="https://alexdragun.github.io/portfolio/" target="_blank"
-              >Visit Website</a
+              >{{ $t('work.link') }}</a
             >
           </div>
         </div>
@@ -25,16 +22,16 @@
           <div class="work__content--header">
             <img src="~static/images/projects/todo.png" alt="ToDo" />
             <div class="created">
-              <p>Aug, 2020</p>
+              <p>{{ $t('work.todo.date') }}</p>
             </div>
           </div>
           <div class="work__content--footer">
             <div>
-              <h4>To Do List</h4>
-              <p>Simple to do list.</p>
+              <h4>{{ $t('work.todo.title') }}</h4>
+              <p>{{ $t('work.todo.description') }}</p>
             </div>
             <a href="https://alexdragun.github.io/todo/" target="_blank"
-              >Visit Website</a
+              >{{ $t('work.link') }}</a
             >
           </div>
         </div>

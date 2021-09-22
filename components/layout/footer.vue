@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>Copyright &copy; 2021 Alex Dragun | All rights Reserved.</p>
+    <p>{{ $t('copyright') }}</p>
   </footer>
 </template>
 
