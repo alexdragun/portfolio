@@ -1,9 +1,17 @@
-$font_varela: 'Varela Round', sans-serif;
+$font_roboto: 'Roboto', sans-serif;
+
+h1, h2, h3, h4, h5, h6, p {
+  &::selection {
+    color: $primary_color;
+    background: $secondary_color;
+  }
+}
 
 h1 {
   margin: 0;
   font-size: 56px;
   line-height: 62px;
+  letter-spacing: 0.32px;
   @media only screen and (max-width: 1024px) {
     font-size: 48px;
     line-height: 54px;
@@ -17,6 +25,7 @@ h2 {
   margin: 0;
   font-size: 42px;
   line-height: 48px;
+  letter-spacing: 0.32px;
   @media only screen and (max-width: 1024px) {
     font-size: 36px;
     line-height: 42px;
@@ -30,6 +39,7 @@ h3 {
   margin: 0;
   font-size: 32px;
   line-height: 38px;
+  letter-spacing: 0.32px;
   @media only screen and (max-width: 1024px) {
     font-size: 28px;
     line-height: 34px;
@@ -43,6 +53,7 @@ h4 {
   margin: 0;
   font-size: 24px;
   line-height: 28px;
+  letter-spacing: 0.32px;
   @media only screen and (max-width: 1024px) {
     font-size: 22px;
     line-height: 26px;
@@ -56,6 +67,7 @@ h5 {
   margin: 0;
   font-size: 20px;
   line-height: 24px;
+  letter-spacing: 0.32px;
   @media only screen and (max-width: 1024px) {
     font-size: 18px;
     line-height: 22px;
@@ -65,16 +77,19 @@ h5 {
     }
   }
 }
-p {
+h6 {
   margin: 0;
   font-size: 18px;
-  line-height: 22px;
-  @media only screen and (max-width: 1024px) {
-    font-size: 16px;
-    line-height: 10px;
-    @media only screen and (max-width: 768px) {
-      font-size: 14px;
-      line-height: 18px;
-    }
+  line-height: 26px;
+  letter-spacing: 0.32px;
+}
+p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  @media only screen and (max-width: 768px) {
+    font-size: 14px;
+    line-height: 18px;
   }
 }

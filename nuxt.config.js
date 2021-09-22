@@ -11,7 +11,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Portfolio - Alex Dragun',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -36,7 +36,7 @@ export default {
   */
   webfontloader: {
     google: {
-      families: ['Varela Round:100,200,300,400,500,600,700,800,900'] //Loads Lato font with weights 400 and 700
+      families: ['Roboto: 100, 200, 300, 400, 500, 700'] //Loads Lato font with weights 400 and 700
     }
   },
   /*
@@ -44,7 +44,8 @@ export default {
   */
   plugins: [
     { src: "@/plugins/aos", ssr: false },
-    { src: "@/plugins/VueScrollTo", ssr: false }
+    { src: "@/plugins/VueScrollTo", ssr: false },
+    { src: "@/plugins/particles", ssr: false }
   ],
   components: true,
   /*
@@ -66,7 +67,6 @@ export default {
   styleResources: {
     scss: [
       '@/assets/styles/variables/_colors.scss',
-      '@/assets/styles/mixins/_global.scss',
       '@/assets/styles/layout/_typography.scss',
       '@/assets/styles/layout/_zindex.scss'
     ],

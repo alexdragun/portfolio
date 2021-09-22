@@ -1,26 +1,23 @@
 <template>
-  <section>
-    <firstSection />
-    <secondSection />
-    <thirdSection/>
-    <fourthSection/>
-    <fifthSection/>
-  </section>
+  <div>
+    <HeroSection />
+    <AboutMeSection />
+    <WorkSection />
+    <ContactSection />
+  </div>
 </template>
 
 <script>
-  import firstSection from '@/components/sections/first-section/View'
-  import secondSection from '@/components/sections/second-section/View'
-  import thirdSection from '@/components/sections/third-section/View'
-  import fourthSection from '@/components/sections/fourth-section/View'
-  import fifthSection from '@/components/sections/fifth-section/View'
   export default {
     components: {
-      firstSection,
-      secondSection,
-      thirdSection,
-      fourthSection,
-      fifthSection
-    }
+      HeroSection: () => import('@/components/sections/HeroSection.vue'),
+      AboutMeSection: () => import('@/components/sections/AboutMeSection.vue'),
+      WorkSection: () => import('@/components/sections/WorkSection.vue'),
+      ContactSection: () => import('@/components/sections/ContactSection.vue')
+    },
   }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
