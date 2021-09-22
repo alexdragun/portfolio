@@ -141,7 +141,7 @@ export default {
             },
             about: {
               title: 'O Meni',
-              description: 'Moje putovanje kao front-end developer započelo je prije gotovo 4 godine. Imam 3 godine radnog iskustva. Strastvena sam osoba i maksimalno posvećen poslu. Edukujem se što više kako bih poboljšao svoje vještine.',
+              description: 'Moje putovanje kao front-end developer započelo je prije gotovo 4 godine. Imam 3 godine radnog iskustva. Strastvena sam osoba i maksimalno posvećen poslu. Educiram se što više kako bih poboljšao svoje vještine.',
               contact: 'KONTAKTIRAJ ME',
               skills: 'Moje Vještine'
             },
