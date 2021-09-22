@@ -97,7 +97,7 @@ export default {
       width: 100%;
       min-width: 500px;
       margin-top: auto;
-      filter: grayscale(100%) drop-shadow(-10px 0px 15px #3a3e4c);
+      filter: grayscale(100%);
       @media only screen and (max-width: 1024px) {
         margin-top: auto;
         margin-inline: auto;
