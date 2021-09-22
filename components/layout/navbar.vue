@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav">
+  <nav class="nav" :class="{ 'nav--scrolled': isScrolled }">
     <div class="nav__left">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -40,27 +40,32 @@
     <div class="nav__center">
       <ul>
         <li>
-          <a v-scroll-to="{
-              el: '#hero-section',
-             }">Home</a>
+          <a
+            @click="scrollTo('hero-section')"
+            :class="{ active: activeLink === 'hero-section' }"
+            >Home</a
+          >
         </li>
         <li>
-          <a v-scroll-to="{
-              el: '#about-section',
-              offset: 0
-             }">About</a>
+          <a
+            @click="scrollTo('about-section')"
+            :class="{ active: activeLink === 'about-section' }"
+            >About</a
+          >
         </li>
         <li>
-          <a v-scroll-to="{
-              el: '#work-section',
-              offset: -80
-             }">Work</a>
+          <a
+            @click="scrollTo('work-section')"
+            :class="{ active: activeLink === 'work-section' }"
+            >Work</a
+          >
         </li>
         <li>
-          <a v-scroll-to="{
-              el: '#contact-section',
-              offset: 0
-             }">Contact</a>
+          <a
+            @click="scrollTo('contact-section')"
+            :class="{ active: activeLink === 'contact-section' }"
+            >Contact</a
+          >
         </li>
       </ul>
     </div>
@@ -68,14 +73,102 @@
       <a>HR</a>
       <a>EN</a>
     </div>
+    <div
+      class="hamburger"
+      :class="{ 'hamburger-active': isOpened }"
+      @click="toggleMenu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <transition name="slide-fade">
+      <div v-if="isOpened" class="responsive-header">
+        <ul>
+          <li>
+            <a
+              @click="scrollTo('hero-section')"
+              :class="{ active: activeLink === 'hero-section' }"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              @click="scrollTo('about-section')"
+              :class="{ active: activeLink === 'about-section' }"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              @click="scrollTo('work-section')"
+              :class="{ active: activeLink === 'work-section' }"
+              >Work</a
+            >
+          </li>
+          <li>
+            <a
+              @click="scrollTo('contact-section')"
+              :class="{ active: activeLink === 'contact-section' }"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </transition>
   </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isOpened: false,
+      isScrolled: false,
+      activeLink: "hero-section",
+    };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    toggleMenu() {
+      this.isOpened = !this.isOpened
+    },
+    scrollTo(elementId) {
+      let offset = 0;
+      if (elementId === "work-section") {
+        offset = -80;
+      }
+      let options = {
+        offset: offset,
+      };
+      this.activeLink = elementId;
+      this.$scrollTo(`#${elementId}`, options);
+      if (this.isOpened) {
+        this.isOpened = false;
+      }
+    },
+    handleScroll() {
+      window.scrollY > 1 ? (this.isScrolled = true) : (this.isScrolled = false);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(250px);
+}
 .nav {
   position: fixed;
   top: 0;
@@ -83,20 +176,32 @@ export default {};
   left: 0;
   box-sizing: border-box;
   padding: 20px 120px;
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   z-index: $z-index_fixed;
   background-color: $primary_color;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
   @media only screen and (max-width: 1224px) {
     padding: 20px 60px;
     @media only screen and (max-width: 768px) {
-      padding: 20px 20px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
     }
   }
+  @media only screen and (min-width: 768px) {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: 1fr auto 1fr;
+  }
+  &--scrolled {
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+    padding-block: 10px;
+  }
   &__center {
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
     ul {
       padding: 0;
       margin: 0;
@@ -114,6 +219,9 @@ export default {};
           &:hover {
             color: $secondary_color;
           }
+          &.active {
+            color: $secondary_color;
+          }
         }
       }
     }
@@ -121,6 +229,9 @@ export default {};
   &__right {
     display: flex;
     justify-content: flex-end;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
     a {
       cursor: pointer;
       display: block;
@@ -133,6 +244,91 @@ export default {};
       }
       &:not(:last-child) {
         margin-right: 10px;
+      }
+    }
+  }
+  .hamburger {
+    cursor: pointer;
+    display: none;
+    &:hover {
+      span {
+        background-color: $secondary_color !important;
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      display: block;
+    }
+    &-active {
+      span {
+        background-color: $secondary_color !important;
+        &:nth-child(1) {
+          margin-bottom: -3px !important;
+          transform: rotate(45deg) !important;
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          margin-bottom: -2px;
+          transform: translateX(-40px);
+        }
+        &:nth-child(3) {
+          margin-bottom: 0 !important;
+          width: 30px !important;
+          transform: rotate(-45deg) !important;
+        }
+      }
+      &:hover {
+        span {
+          background-color: $gray !important;
+        }
+      }
+    }
+    span {
+      display: block;
+      height: 3px;
+      width: 30px;
+      margin-bottom: 5px;
+      background-color: $gray;
+      opacity: 1;
+      transition: 0.3s;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .responsive-header {
+    box-sizing: border-box;
+    position: fixed;
+    padding: 20px 30px;
+    top: 64px;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: $primary_color;
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+    @media only screen and (max-width: 400px) {
+      width: 100%;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+        a {
+          cursor: pointer;
+          font-size: 16px;
+          transition: 0.3s;
+          &:hover {
+            color: $secondary_color;
+          }
+          &.active {
+            color: $secondary_color;
+          }
+        }
       }
     }
   }

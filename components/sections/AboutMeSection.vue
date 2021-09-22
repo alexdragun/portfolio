@@ -10,7 +10,9 @@
             have 3 years of work experience. I'm very passionate and dedicated
             to my work. Always working on improving my skills.
           </p>
-          <Button>CONTACT ME</Button>
+          <Button v-scroll-to="{
+              el: '#contact-section',
+             }">CONTACT ME</Button>
         </div>
       </div>
       <SkillsSection />

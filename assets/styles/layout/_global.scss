@@ -8,10 +8,10 @@ html, body {
   -moz-osy-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 3px;
   }
   &::-webkit-scrollbar-thumb {
-    background: $primary_color;
+    background: $secondary_color;
   }
 }
 

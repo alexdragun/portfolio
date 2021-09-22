@@ -16,7 +16,6 @@
   "dependencies": {
     "@nuxtjs/eslint-module": "^1.2.0",
     "@nuxtjs/style-resources": "^1.0.0",
-    "aos": "^2.3.4",
     "nuxt": "2.13.2",
     "nuxt-webfontloader": "^1.1.0",
     "vue-scrollto": "^2.18.2"

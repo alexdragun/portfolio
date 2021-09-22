@@ -7,9 +7,9 @@
           <Input label="Subject" v-model="subject" />
           <Textarea label="Message" v-model="message" />
           <Button>
-            <template v-if="status === 'sending'"> Sending... </template>
-            <template v-else-if="status === 'sent'"> Sent </template>
-            <template v-else> Submit </template>
+            <template v-if="status === 'sending'"> SENDING... </template>
+            <template v-else-if="status === 'sent'"> SENT </template>
+            <template v-else> SUBMIT </template>
           </Button>
         </form>
       </div>

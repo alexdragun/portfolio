@@ -43,7 +43,6 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: "@/plugins/aos", ssr: false },
     { src: "@/plugins/VueScrollTo", ssr: false },
     { src: "@/plugins/particles", ssr: false }
   ],
