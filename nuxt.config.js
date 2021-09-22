@@ -15,7 +15,31 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      {
+        hid: 'description', 
+        name: 'description', 
+        content: 'My journey as a front-end developer started almost 4 years ago. I have 3 years of work experience. I\'m very passionate and dedicated to my work. Always working on improving my skills.'
+      },
+      {
+        hid: 'og:og:title',
+        name: 'og:og:title',
+        content: 'Portfolio - Alex Dragun'
+      },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content: 'My journey as a front-end developer started almost 4 years ago. I have 3 years of work experience. I\'m very passionate and dedicated to my work. Always working on improving my skills.'
+      },
+      {
+        hid: 'og:url',
+        name: 'og:url',
+        content: 'https://alexdragun.github.io/portfolio/'
+      },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: 'https://alexdragun.github.io/portfolio/images/projects/portfolio.png'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'favicon.svg' }
