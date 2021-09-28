@@ -57,7 +57,7 @@ export default {
   methods: {
     downloadCv() {
       var anchor = document.createElement("a");
-      anchor.setAttribute("href", "https://alexdragun.github.io/portfolio/favicon.svg");
+      anchor.setAttribute("href", "https://alexdragun.github.io/portfolio/Alex_Dragun_CV.pdf");
       anchor.setAttribute("download", "");
       document.body.appendChild(anchor);
       anchor.click();
