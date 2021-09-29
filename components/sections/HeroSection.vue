@@ -13,7 +13,7 @@
       <div class="container__inner--content">
         <div>
           <h6>{{ $t("hero.hello") }}</h6>
-          <h1>{{ $t("hero.me") }} <span>Alex</span> Dragun</h1>
+          <h1><span>Alex</span> Dragun</h1>
           <p>{{ $t("hero.description") }}</p>
           <Button @click="downloadCv">{{ $t("hero.cv") }}</Button>
           <div class="social">

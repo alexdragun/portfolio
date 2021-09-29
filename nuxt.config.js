@@ -93,7 +93,6 @@ export default {
             },
             hero: {
               hello: 'HELLO',
-              me: "I'm",
               description: 'Front-end developer located in Croatia',
               cv: 'DOWNLOAD CV'
             },
@@ -135,7 +134,6 @@ export default {
             },
             hero: {
               hello: 'BOK',
-              me: 'Ja sam',
               description: 'Front-end developer iz Hrvatske',
               cv: 'PREUZMITE ŽIVOTOPIS'
             },
