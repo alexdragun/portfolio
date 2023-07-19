@@ -15,7 +15,6 @@
           <h6>{{ $t("hero.hello") }}</h6>
           <h1><span>Alex</span> Dragun</h1>
           <p>{{ $t("hero.description") }}</p>
-          <Button @click="downloadCv">{{ $t("hero.cv") }}</Button>
           <div class="social">
             <a
               href="https://www.linkedin.com/in/alex-dragun-7304b2192/"
@@ -52,21 +51,10 @@
 <script>
 export default {
   components: {
-    Button: () => import("@/components/partials/Button.vue"),
-  },
-  methods: {
-    downloadCv() {
-      var anchor = document.createElement("a");
-      anchor.setAttribute("href", "https://alexdragun.github.io/portfolio/Alex_Dragun_CV.pdf");
-      anchor.setAttribute("download", "");
-      document.body.appendChild(anchor);
-      anchor.click();
-      anchor.parentNode.removeChild(anchor);
-    },
-  },
+    Button: () => import("@/components/partials/Button.vue")
+  }
 };
 </script>
-
 
 <style lang="scss" scoped>
 .container {

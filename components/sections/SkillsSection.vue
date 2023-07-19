@@ -1,7 +1,9 @@
 <template>
   <div class="skills">
     <div class="title-container">
-      <h3 class="title" :class="{ 'title--hr': $route.path === '/hr' }">{{ $t('about.skills') }}</h3>
+      <h3 class="title" :class="{ 'title--hr': $route.path === '/hr' }">
+        {{ $t("about.skills") }}
+      </h3>
     </div>
     <div class="skills__inner">
       <Progress :percentage="100">
@@ -18,6 +20,30 @@
       </Progress>
       <Progress :percentage="100">
         <div class="skill">
+          <img src="~static/images/skills/javascript.png" alt="JavaScript" />
+          <p>JavaScript</p>
+        </div>
+      </Progress>
+      <Progress :percentage="100">
+        <div class="skill">
+          <img src="~static/images/skills/typescript.png" alt="TypeScript" />
+          <p>TypeScript</p>
+        </div>
+      </Progress>
+      <Progress :percentage="100">
+        <div class="skill">
+          <img src="~static/images/skills/strapi.png" alt="Strapi" />
+          <p>Strapi</p>
+        </div>
+      </Progress>
+      <Progress :percentage="100">
+        <div class="skill">
+          <img src="~static/images/skills/storybook.png" alt="Storybook" />
+          <p>Storybook</p>
+        </div>
+      </Progress>
+      <Progress :percentage="100">
+        <div class="skill">
           <img src="~static/images/skills/html.png" alt="html" />
           <p>HTML</p>
         </div>
@@ -30,47 +56,35 @@
       </Progress>
       <Progress :percentage="100">
         <div class="skill">
-          <img src="~static/images/skills/javascript.png" alt="JavaScript" />
-          <p>JavaScript</p>
-        </div>
-      </Progress>
-      <Progress :percentage="100">
-        <div class="skill">
           <img src="~static/images/skills/api.svg" alt="API" />
           <p>Rest API</p>
         </div>
       </Progress>
-      <Progress :percentage="90">
+      <Progress :percentage="100">
         <div class="skill">
           <img src="~static/images/skills/figma.png" alt="Figma" />
           <p>Figma</p>
         </div>
       </Progress>
-      <Progress :percentage="85">
+      <Progress :percentage="100">
         <div class="skill">
           <img src="~static/images/skills/bootstrap.png" alt="Bootstrap" />
           <p>Bootstrap</p>
         </div>
       </Progress>
-      <Progress :percentage="80">
+      <Progress :percentage="100">
         <div class="skill">
           <img src="~static/images/skills/quasar.png" alt="Quasar" />
           <p>Quasar</p>
         </div>
       </Progress>
-      <Progress :percentage="80">
+      <Progress :percentage="100">
         <div class="skill">
           <img src="~static/images/skills/git.png" alt="Git" />
           <p>Git</p>
         </div>
       </Progress>
-      <Progress :percentage="70">
-        <div class="skill">
-          <img src="~static/images/skills/typescript.png" alt="TypeScript" />
-          <p>TypeScript</p>
-        </div>
-      </Progress>
-      <Progress :percentage="70">
+      <Progress :percentage="100">
         <div class="skill">
           <img src="~static/images/skills/cypress.png" alt="Cypress" />
           <p>Cypress</p>
@@ -83,8 +97,8 @@
 <script>
 export default {
   components: {
-    Progress: () => import("@/components/partials/Progress.vue"),
-  },
+    Progress: () => import("@/components/partials/Progress.vue")
+  }
 };
 </script>
 
@@ -104,7 +118,7 @@ export default {
       overflow: hidden;
       width: 40px;
       /* height: 175px; */
-          height: 325px;
+      height: 325px;
     }
     .title {
       width: fit-content;
